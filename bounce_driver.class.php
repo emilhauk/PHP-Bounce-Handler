@@ -90,6 +90,12 @@ class BounceHandler
      */
     public $fbl_hash = array();
     /**
+     * Extracted returned body part data.
+     *
+     * @var array
+     */
+    public $returned_hash = array();
+    /**
      * Not necessary(?)
      *
      * @var array
@@ -488,6 +494,9 @@ class BounceHandler
             }
         } else if ($this->is_RFC1892_multipart_report() === true) {
 
+            $this->returned_hash = isset($mime_sections['returned_message_body_part'])
+                ? $this->get_head_from_returned_message_body_part($mime_sections) : array();
+
             $rpt_hash = $this->parse_machine_parsable_body_part(
                 $mime_sections['machine_parsable_body_part']
             );
@@ -503,6 +512,10 @@ class BounceHandler
 
                     $this->output[$i]['action']
                         = $this->get_action_from_status_code($mycode['code']);
+                    
+                    $this->output[$i]['diagnosticCode'] = $this->format_diagnostic_code(
+                            $rpt_hash['per_recipient'][$i]['Diagnostic-code']
+                    );
                 }
             } else {
                 $arrFailed = $this->find_email_addresses(
@@ -555,6 +568,8 @@ class BounceHandler
                         );
                 }
             } else {
+                $this->returned_hash = $this->get_head_from_message_body();
+
                 // last ditch attempt
                 // could possibly produce erroneous output, or be very resource
                 // consuming, so be careful.  You should comment out this
@@ -774,6 +789,7 @@ class BounceHandler
                 $line = trim($line);
                 if (true === isset($array[1])
                     && strpos($array[1], '=?') !== false
+                    && isset($array[2])
                 ) {
                     $line = iconv_mime_decode(
                         $array[2], ICONV_MIME_DECODE_CONTINUE_ON_ERROR, "UTF-8"
@@ -1319,6 +1335,15 @@ class BounceHandler
         }
         return $ret;
     }
+    
+    function format_diagnostic_code($code)
+    {
+        $ret = '';
+        if(isset($code['type'], $code['text'])) {
+            $ret = implode('; ', [$code['type'], $code['text']]);
+        }
+        return $ret;
+    }
 
     /**
      * Find the recipient from either the original-recipient or
@@ -1511,6 +1536,21 @@ class BounceHandler
      *
      * @return array
      */
+    function get_head_from_message_body()
+    {
+        $head = $this->standard_parser($this->body_hash);
+        $head['From'] = $this->extract_address($head['From']);
+        $head['To'] = $this->extract_address($head['To']);
+        $head['Message-id'] = $this->extract_message_id($head['Message-id']);
+
+        return $head;
+    }
+    
+    /**
+     * @param $mime_sections
+     *
+     * @return array
+     */
     function get_head_from_returned_message_body_part($mime_sections)
     {
         $temp = explode(
@@ -1519,6 +1559,7 @@ class BounceHandler
         $head = $this->standard_parser($temp[1]);
         $head['From'] = $this->extract_address($head['From']);
         $head['To'] = $this->extract_address($head['To']);
+        $head['Message-id'] = $this->extract_message_id($head['Message-id']);
 
         return $head;
     }
@@ -1539,6 +1580,16 @@ class BounceHandler
         }
 
         return $from;
+    }
+    
+    /**
+     * @param $str
+     *
+     * @return mixed
+     */
+    function extract_message_id($str)
+    {
+        return trim($str, "<>");
     }
 
     /**
