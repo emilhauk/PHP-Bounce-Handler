@@ -1539,9 +1539,9 @@ class BounceHandler
     function get_head_from_message_body()
     {
         $head = $this->standard_parser($this->body_hash);
-        $head['From'] = $this->extract_address($head['From']);
-        $head['To'] = $this->extract_address($head['To']);
-        $head['Message-id'] = $this->extract_message_id($head['Message-id']);
+        $head['From'] = isset($head['From']) ? $this->extract_address($head['From']) : null;
+        $head['To'] = isset($head['To']) ? $this->extract_address($head['To']) : null;
+        $head['Message-id'] = isset($head['Message-id']) ? $this->extract_message_id($head['Message-id']) : null;
 
         return $head;
     }
@@ -1557,9 +1557,9 @@ class BounceHandler
             "\r\n\r\n", $mime_sections['returned_message_body_part']
         );
         $head = $this->standard_parser($temp[1]);
-        $head['From'] = $this->extract_address($head['From']);
-        $head['To'] = $this->extract_address($head['To']);
-        $head['Message-id'] = $this->extract_message_id($head['Message-id']);
+        $head['From'] = isset($head['From']) ? $this->extract_address($head['From']) : null;
+        $head['To'] = isset($head['To']) ? $this->extract_address($head['To']) : null;
+        $head['Message-id'] = isset($head['Message-id']) ? $this->extract_message_id($head['Message-id']) : null;
 
         return $head;
     }
