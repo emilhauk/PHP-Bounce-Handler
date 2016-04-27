@@ -534,6 +534,8 @@ class BounceHandler
                 }
             }
         } else if (isset($this->head_hash['X-failed-recipients'])) {
+            $this->returned_hash = $this->get_head_from_message_body();
+            
             //  Busted Exim MTA
             //  Up to 50 email addresses can be listed on each header.
             //  There can be multiple X-Failed-Recipients: headers. - (not supported)
