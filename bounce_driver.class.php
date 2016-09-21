@@ -1558,7 +1558,7 @@ class BounceHandler
         $temp = explode(
             "\r\n\r\n", $mime_sections['returned_message_body_part']
         );
-        $head = $this->standard_parser($temp[1]);
+        $head = !empty($temp[1]) ? $this->standard_parser($temp[1]) : array();
         $head['From'] = isset($head['From']) ? $this->extract_address($head['From']) : null;
         $head['To'] = isset($head['To']) ? $this->extract_address($head['To']) : null;
         $head['Message-id'] = isset($head['Message-id']) ? $this->extract_message_id($head['Message-id']) : null;
