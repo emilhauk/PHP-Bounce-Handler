@@ -768,7 +768,7 @@ class BounceHandler
                 $entity = ucfirst(strtolower($array[1]));
                 if (isset($array[2]) && strpos($array[2], '=?') !== false) {
                     // decode MIME Header encoding (subject lines etc)
-                    $array[2] = iconv_mime_decode(
+                    $array[2] = @iconv_mime_decode(
                         $array[2], ICONV_MIME_DECODE_CONTINUE_ON_ERROR, "UTF-8"
                     );
                 }
