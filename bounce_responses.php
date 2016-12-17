@@ -27,6 +27,7 @@ $bouncelist = array(
     'exceeded storage allocation' => '4.2.2',
     'Mailbox full' => '4.2.2',
     'mailbox is full' => '4.2.2', // BH
+    'Sorry, the user\'s maildir has overdrawn his diskspace quota' => '4.2.2', // BH
     'Mailbox quota usage exceeded' => '4.2.2', // BH
     'Mailbox size limit exceeded' => '4.2.2',
     'over ?quota' => '4.2.2',
@@ -65,6 +66,7 @@ $bouncelist = array(
     'try again later' => '4.3.2',
     'Try later' => '4.3.2',
     'retry timeout exceeded' => '4.4.7',
+    'retry time not reached for any host after a long failure period' => '4.4.7',
     'queue too long' => '4.4.7',
     '554 delivery error:' => '5.1.1',
     // SB: Yahoo/rogers.com generic delivery failure (see also OU-00)
@@ -190,6 +192,10 @@ $bouncelist = array(
     // .IT blocked/expired
     'Recipient mailbox was disabled' => '5.2.1',
     'Domain name not found' => '5.2.1',
+    'Host or domain name not found. Name service error for name' => '5.2.1',
+    'Host not found' => '5.2.1',
+    'nouser Mailbox is no longer in use' => '5.4.1',
+    'Connection timed out' => '5.4.1',
     'couldn\'t find any host named' => '5.4.4',
     'couldn\'t find any host by that name' => '5.4.4',
     'PERM_FAILURE: DNS Error' => '5.4.4', // SB: Routing failure
@@ -207,6 +213,7 @@ $bouncelist = array(
     '550 DY-00' => '5.7.1',
     // SB hotmail returns a DY-00x if you're a dynamic IP
     '554 denied' => '5.7.1',
+    'Policy rejection on the target address' => '5.7.1',
     'You have been blocked by the recipient' => '5.7.1',
     'requires that you verify' => '5.7.1',
     'Access denied' => '5.7.1',

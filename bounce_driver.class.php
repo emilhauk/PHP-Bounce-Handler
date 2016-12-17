@@ -525,7 +525,7 @@ class BounceHandler
                     $this->output[$j]['recipient'] = trim($arrFailed[$j]);
                     $this->output[$j]['status']
                         = $this->get_status_code_from_text(
-                            $this->output[$j]['recipient'], 0
+                            $this->output[$j]['recipient'], 0, $mime_sections['first_body_part']
                         );
                     $this->output[$j]['action']
                         = $this->get_action_from_status_code(
@@ -543,7 +543,7 @@ class BounceHandler
             for ($j = 0; $j < count($arrFailed); $j++) {
                 $this->output[$j]['recipient'] = trim($arrFailed[$j]);
                 $this->output[$j]['status'] = $this->get_status_code_from_text(
-                    $this->output[$j]['recipient'], 0
+                    $this->output[$j]['recipient'], 0, ''
                 );
                 $this->output[$j]['action']
                     = $this->get_action_from_status_code(
@@ -562,7 +562,7 @@ class BounceHandler
                     $this->output[$j]['recipient'] = trim($arrFailed[$j]);
                     $this->output[$j]['status']
                         = $this->get_status_code_from_text(
-                            $this->output[$j]['recipient'], 0
+                            $this->output[$j]['recipient'], 0, $mime_sections['first_body_part']
                         );
                     $this->output[$j]['action']
                         = $this->get_action_from_status_code(
@@ -584,7 +584,7 @@ class BounceHandler
                     $this->output[$j]['recipient'] = trim($arrFailed[$j]);
                     $this->output[$j]['status']
                         = $this->get_status_code_from_text(
-                            $this->output[$j]['recipient'], 0
+                            $this->output[$j]['recipient'], 0, ''
                         );
                     $this->output[$j]['action']
                         = $this->get_action_from_status_code(
@@ -1374,29 +1374,45 @@ class BounceHandler
      *
      * @return string
      */
-    function get_status_code_from_text($recipient, $index)
+    function get_status_code_from_text($recipient, $index, $first_part)
     {
+        // This part is added to be able to compare an unbroken string
+        // as not all messages end on one line when the columns are maximized
+        $first_part = preg_replace('#[\r\n]#', ' ', $first_part);
+        $first_part = preg_replace('#[ ]+#', ' ', $first_part);
+            //******** pattern matching ********/
+        foreach ($this->_bouncelist as $bouncetext => $bouncecode) {
+            if (preg_match("/$bouncetext/i", $first_part, $matches)) {
+                return (isset($matches[1])) ? $matches[1] : $bouncecode;
+            }
+        }
         for ($i = $index; $i < count($this->body_hash); $i++) {
             $line = trim($this->body_hash[$i]);
 
             //skip Message-ID lines
+//Ain't the header clearly separated from the body, or are mailers also confusing this? rmast
             if (stripos($line, 'Message-ID') !== false) {
                 continue;
             }
 
-            /* recurse into the email if you find the recipient **/
-            if (stristr($line, $recipient) !== false) {
-                // the status code MIGHT be in the next few lines after the
-                // recipient line,
-                // depending on the message from the foreign host...
-                $status_code = $this->get_status_code_from_text(
-                    $recipient, $i + 1
-                );
-                if ($status_code) {
-                    return $status_code;
-                }
+// This so called recursion always comes to sudden death as status codes always seem
+// to be filled by this function with some status, even if not found by 5.5.0, so 
+// the effect is not recursion, but only skipping the current line, which might 
+// contain a useful statustext surrounding the e-mail.
 
-            }
+//            /* recurse into the email if you find the recipient **/
+//            if (stristr($line, $recipient) !== false) {
+//                // the status code MIGHT be in the next few lines after the
+//                // recipient line,
+//                // depending on the message from the foreign host...
+//                $status_code = $this->get_status_code_from_text(
+//                    $recipient, $i + 1, ''
+//                );
+//                if ($status_code) {
+//                    return $status_code;
+//                }
+//
+//            }
 
             /******** exit conditions ********/
             // if it's the end of the human readable part in this stupid bounce
@@ -1465,7 +1481,12 @@ class BounceHandler
 
         }
 
-        return '5.5.0';  // other or unknown status
+        //return '5.5.0';  // other or unknown status
+// the choice of 5.5.0 is mixing up failure not to find the right 
+// status with our strategies with other vague 550 results which, while we
+// prefer more specific messages.
+// To prevent this error to end up on the same heap I changed it to 9.9.9.
+        return '9.9.9';  // other or unknown status
     }
 
 
