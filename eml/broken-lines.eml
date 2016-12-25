@@ -1,0 +1,114 @@
+Return-Path: <>
+X-Original-To: support@example-sender.com
+Delivered-To: support@example-sender.com
+Received: from se01.mail.example-sender.com (se01.mail.example-sender.com [IPv6:2a00:f10:121:a00:470:4ff:fe00:1845])
+	by smtp02.mail.example-sender.com (Postfix) with ESMTPS id B5D853FDF9
+	for <support@example-sender.com>; Fri, 23 Dec 2016 22:28:00 +0100 (CET)
+Received: from se01-out.mail.example-sender.com ([185.66.251.200])
+	by se01.mail.example-sender.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+	(Exim 4.86)
+	id 1cKXNf-0004sh-Ew
+	for support@example-sender.com; Fri, 23 Dec 2016 22:28:00 +0100
+Received: from Debian-exim by se01.mail.example-sender.com with local (Exim 4.86)
+	id 1cKXNe-0004sT-WB
+	for support@example-sender.com; Fri, 23 Dec 2016 22:27:59 +0100
+X-Failed-Recipients: borderrose@ziggo.nl
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@se01.mail.example-sender.com>
+To: support@example-sender.com
+Content-Type: multipart/report; report-type=delivery-status; boundary=1482528478-eximdsn-1697419581
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <E1cKXNe-0004sT-WB@se01.mail.example-sender.com>
+Date: Fri, 23 Dec 2016 22:27:58 +0100
+X-Sender-Warning: se01-out.mail.example-sender.com has no MX records
+X-SpamExperts-Class: ham
+X-SpamExperts-Evidence: Combined (0.15)
+X-Filter-ID: s0sct1PQhAABKnZB5plbIfKPK2sSz8QVqur6DifjkriUzMAlHP67fvtnglMzXL+/icSep5n+yTsS
+ Hx6pAPbj+bdD9ehoXTheWZAVBiCIlfI8BufcwUyQAFDNTnqyNgvQNadP+Mku8ZTIvKzZrMCab9hO
+ D4BlsQWwD7mEpkEPn+ru50KUqTrdyuO33Tyhg1XcWCvPAQKuAzVP2cDQzchJOpVf4eWI30Fz28D7
+ PdDwVHE/AxzNcK2EkLcQjkw9yxNePd0rEuGjFyZoidhtHm+WoSt5r5jZGEqt8oNz3xQKIqbbVwHk
+ gjgG5Ny9G9NH7Jmbnf45thXlvkZt1g9CrvJADZgBGv5s+NX7pMoPQFPrFYGk/OyOWJ4NkcG8YLaI
+ ixYuq48A30ZS3QTxx07hWt98t0zxe5XyMODaNd57ScDoYU91el35jO+WJBgrWGjAavfuGZGsApS6
+ al6xLtRwxtQnVYQt+hfn9a4niszDF7AOoL4X4MA63u5k7Iu/0LwP+UbF890YY5VxciZlRJIafXwY
+ McK8gijnPHNFkQWGU/ioaWa0iADutvldqR+2T6RBumwYrBGkwCH5qBKJ1+gk1hIcIpbopw8ycvGJ
+ iqv5FkW62AKZtXYpW2/rRt+SrL5QPKwCVU7TZeG6J3Yr3DSB+WnIz4twC8CO9nsnBGxiDhQMTafy
+ IL99++r5tEavkCJce18wL2CGkCiwoWec9np6RVhUGjdYOh3igIprCtVmENqh7aAsEkMTM3GFnZJK
+ WXtAxEzV9jihx+Za/cV70jOJzN2r4A==
+X-Report-Abuse-To: spam@semaster01.mail.example-sender.com
+X-Recommended-Action: accept
+
+--1482528478-eximdsn-1697419581
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+
+A message that you sent could not be delivered to one or more of its
+recipients. This is a permanent error. The following address(es) failed:
+
+  borderrose@ziggo.nl
+    host mx.mnd.mail.iss.as9143.net [212.54.34.8]
+    SMTP error from remote mail server after RCPT TO:<borderrose@ziggo.nl>:
+    550 borderrose@ziggo.nl bestaat niet / does not exist
+
+--1482528478-eximdsn-1697419581
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; se01.mail.example-sender.com
+
+Action: failed
+Final-Recipient: rfc822;borderrose@ziggo.nl
+Status: 5.0.0
+Remote-MTA: dns; mx.mnd.mail.iss.as9143.net
+Diagnostic-Code: smtp; 550 borderrose@ziggo.nl bestaat niet / does not exist
+
+--1482528478-eximdsn-1697419581
+Content-type: message/rfc822
+
+Return-path: <support@example-sender.com>
+Received: from [2a00:f10:101:0:473:12ff:fe00:67] (helo=vhosting-relay.mail.example-sender.com)
+	by se01.mail.example-sender.com with esmtpa (Exim 4.86)
+	(envelope-from <support@example-sender.com>)
+	id 1cKXNX-0004qY-5z
+	for borderrose@ziggo.nl; Fri, 23 Dec 2016 22:27:53 +0100
+Received: from web20.vhosting.example-sender.com (unknown [IPv6:2a00:f10:101:201:225:90ff:fee8:747a])
+	by vhosting-relay.mail.example-sender.com (Postfix) with ESMTP id AD79FFDB5
+	for <borderrose@ziggo.nl>; Fri, 23 Dec 2016 22:27:50 +0100 (CET)
+Received: by web20.vhosting.example-sender.com (Postfix, from userid 78051)
+	id AB286265A6A; Fri, 23 Dec 2016 22:27:50 +0100 (CET)
+To: borderrose@ziggo.nl
+Subject: Nieuwsbrief aanmelding
+X-PHP-Originating-Script: 78051:class-phpmailer.php
+Date: Fri, 23 Dec 2016 21:27:50 +0000
+From: Stichting Tekenbeetziekten <support@example-sender.com>
+Message-ID: <acb927bca95bfd997ee3798cfe63e498@www.example-sender.com>
+X-Mailer: PHPMailer 5.2.14 (https://github.com/PHPMailer/PHPMailer)
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: 2a00:f10:101:0:473:12ff:fe00:67
+X-SpamExperts-Domain: out.example-sender.com
+X-SpamExperts-Username: vhosting-relay
+Authentication-Results: mail.example-sender.com; auth=pass (plain) smtp.auth=vhosting-relay@out.example-sender.com
+X-SpamExperts-Outgoing-Class: ham
+X-SpamExperts-Outgoing-Evidence: Combined (0.20)
+X-Filter-ID: s0sct1PQhAABKnZB5plbIaNYWB4c1UuLQAaTSi4EmbCHYbB3NP4NAJ/MHsxzn7xfcSXBh1pOjj7h
+ vEQqfijc456KpvIcAynosXmRv6+MVVDB1i7JILazz4jaMu6Wglz6gcL8KZheBc1eyPehuEBS2CZI
+ DqpHS1dmIQmuJ0aQEYr2meHS59KxC1lWfJFhlG4zU80kKPGX7reqP1Au46UzeyG7X+t1TW39Ja77
+ LGPpOwDTmYNOAuJwk/GViw6JeY8xs2DjYwEKPQ9i2s4u1mqALWUSPFpKc77CBnOIwVLE2hDv3D7M
+ zr5iak1+r+zRd3EAWNWmXa7c0htmO4ciUtDbJhi2u2eTUhIjyotMJmAHz3CuVvIAFXzjsGAcFuWy
+ 2yKOjZQNHZxq2dcnYtuO+l2dGsJfMLoARmxy4o14wWNkVlYoQJBnBo4GtTG1asrstCOmXimpLVgS
+ OWQCk5wWJSD5cmuzDLSeX4vdMwnVQsPRojofeSh2EUqJxQZXI7/8zc90Px2GCTqCDjCq7bbP8Uyj
+ paXHxq6bcVy9LelHCUSTx/hKSI3QEyZbRbLhRrQXMofO8x0/3bo/ElCcMmyAh7Swcdom8NG5lGeQ
+ VQnex0Iet8esPZ2MCxlEfg9KssLQLtDy4M0RIJ6vJ5RdPCpwR0cc4ghfVxVKHDwaennd3fZNNme6
+ GXIsT6EfHodo7CoVGpPchEDWPmEgE0fAmLmLTYUJWzUjJv/7ppeSoSDFDvwCuIFQM4niwXnq0C0k
+ hS/3aGHGZcX1zP6di/ZTO3PQLOimutKJXQ4n8xvDHzJHRe0Jateq8j5nxFSst+6f6r19fG3rCqKy
+ MMr9DC5xv10I1RUEoDXHepVW1FNNT5zZ87DtA7kmocL7GpaqLiTXIFb7F6OzmLDeeN0ZuH5mMuZ0
+ lLdTvg==
+X-Report-Abuse-To: spam@semaster01.mail.example-sender.com
+X-Recommended-Action: accept
+
+<p>U heeft zich aangemeld voor de nieuwsbrief van example-sender.com. Om uw aanmelding te bevestigen klikt u <a href="http://www.example-sender.com/?knews=confirmUser&k=b8f4fda6&e=1313">hier</a>.</p><p>U kunt ook het volgende adres in uw browser plakken:<br>http://www.example-sender.com/?knews=confirmUser&k=b8f4fda6&e=1313</p>
+
+
+--1482528478-eximdsn-1697419581--
