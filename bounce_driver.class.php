@@ -1482,11 +1482,10 @@ class BounceHandler
         }
 
         //return '5.5.0';  // other or unknown status
-// the choice of 5.5.0 is mixing up failure not to find the right 
-// status with our strategies with other vague 550 results which, while we
-// prefer more specific messages.
-// To prevent this error to end up on the same heap I changed it to 9.9.9.
-        return '9.9.9';  // other or unknown status
+// the choice of 5.5.0 for transient (4.*) and permanent (5.*) errors that couldn't 
+// be recognized gives the risk of loosing members with a temporary full mailbox,
+// so don't guess, but just return a failure state.
+        return;  // other or unknown status
     }
 
 
