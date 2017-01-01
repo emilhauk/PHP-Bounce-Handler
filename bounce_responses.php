@@ -27,7 +27,7 @@ $bouncelist = array(
     'exceeded storage allocation' => '4.2.2',
     'Mailbox full' => '4.2.2',
     'mailbox is full' => '4.2.2', // BH
-    'Sorry, the user\'s maildir has overdrawn his diskspace quota' => '4.2.2', // BH
+    'Sorry, the user\'s maildir has overdrawn his diskspace quota' => '4.2.2', // RM
     'Mailbox quota usage exceeded' => '4.2.2', // BH
     'Mailbox size limit exceeded' => '4.2.2',
     'over ?quota' => '4.2.2',
@@ -164,7 +164,7 @@ $bouncelist = array(
     'Mailbox currently suspended' => '5.2.0',
     'mailbox unavailable' => '5.2.0',
     'mail can not be delivered' => '5.2.0',
-    'Delivery failed' => '5.2.0',
+//RM    'Delivery failed' => '5.2.0', 
     'mail couldn\'t be delivered' => '5.2.0',
     'The account or domain may not exist' => '5.2.0',
     // I guess.... seems like 5.1.1, 5.1.2, or 5.4.4 would fit too, but 5.2.0
