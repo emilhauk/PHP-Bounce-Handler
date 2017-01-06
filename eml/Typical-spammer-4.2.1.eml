@@ -1,0 +1,132 @@
+Return-Path: <>
+X-Original-To: bounce@example-sender.com
+Delivered-To: bounce@example-sender.com
+Received: from se03.mail.example-sender.com (se03.mail.example-sender.com [IPv6:2a00:f10:400:2:488:56ff:fe00:74f])
+        by smtp01.mail.example-sender.com (Postfix) with ESMTPS id 1586C76052
+        for <bounce@example-sender.com>; Wed,  4 Jan 2017 17:04:51 +0100 (CET)
+Received: from se03-out.mail.example-sender.com ([185.107.224.100])
+        by se03.mail.example-sender.com with esmtps (TLSv1.2:ECDHE-RSA-AES256-GCM-SHA384:256)
+        (Exim 4.86)
+        id 1cOo3W-00083P-3h
+        for bounce@example-sender.com; Wed, 04 Jan 2017 17:04:51 +0100
+Received: from Debian-exim by se03.mail.example-sender.com with local (Exim 4.86)
+        id 1cOo3V-000832-JV
+        for bounce@example-sender.com; Wed, 04 Jan 2017 17:04:49 +0100
+Auto-Submitted: auto-replied
+From: Mail Delivery System <Mailer-Daemon@se03.mail.example-sender.com>
+To: bounce@example-sender.com
+Content-Type: multipart/report; report-type=delivery-status; boundary=1483545889-eximdsn-908984390
+MIME-Version: 1.0
+Subject: Warning: message 1cOLst-0000JZ-5n delayed 24 hours
+Message-Id: <E1cOo3V-000832-JV@se03.mail.example-sender.com>
+Date: Wed, 04 Jan 2017 17:04:49 +0100
+X-Sender-Warning: se03-out.mail.example-sender.com has no MX records
+X-SpamExperts-Class: unsure
+X-SpamExperts-Evidence: Combined (0.58)
+X-Filter-ID: s0sct1PQhAABKnZB5plbIfKPK2sSz8QVqur6DifjkriUzMAlHP67fvtnglMzXL+/zzBmY0sAjLEd
+ QPA5eRsQO7dD9ehoXTheWZAVBiCIlfI8BufcwUyQAFDNTnqyNgvQNadP+Mku8ZTIvKzZrMCab+r6
+ VDGIVXI9mWHZR3TAflDu50KUqTrdyuO33Tyhg1XcvyCsf7sslENMyAUp+6tjLPDn8sKfHirJjJnu
+ TxTR8K/sDtsEgXrir+mVIsijLOlKvCrJPmnnTHzVkpybMK7ZTTf6n0PIilvQ1fsRzmftmDT3dOg3
+ 50fQ0k2ZifWhQ1W3AUUZmteCaHPVXebnxROzOmR8IKrtXmNT0nKTLvasl4HpSl3V/SCnteaLpOVr
+ GTf02h7GcJXLORYk8u89oTocxaZgrjAOqqSDHEKHJcbfTFXjtxmx7s+wQci8C0rVcnf9sB9zVa3u
+ QZKOroNj4FLASoRF2Dhu0PFCHvFho4pyukyDwIE7VKe+bqpcdCns72R1E8d8JPUsDuxyAaLyKOfn
+ f+milyeGXl4zDH0gvhj3sh9lbqWojXyT4hgXg3aBbp5w1aWkO8SadSsIZyKa7A4fonCeCtchbSp1
+ Z7XhQVw1KGpBOdP0QOKe/umYWtjMe6ohO6WKgSYAYC5JJPaF8g945QWOiURNEm5bD7f/fp/SUqzS
+ eQjIr/K4/mac+8ynxTT1NcJ7xe1k8dq690YtC4id5QcnngT7YLCUdCrt778HSSqG+aPT4065FnWI
+ bILFbreC
+X-Report-Abuse-To: spam@semaster01.mail.example-sender.com
+X-Recommended-Action: accept
+
+--1483545889-eximdsn-908984390
+Content-type: text/plain; charset=us-ascii
+
+This message was created automatically by mail delivery software.
+A message that you sent has not yet been delivered to one or more of its
+recipients after more than 24 hours on the queue on se03.mail.example-sender.com.
+
+The message identifier is:     1cOLst-0000JZ-5n
+The subject of the message is: Nieuwsbrief aanmelding
+The date of the message is:    Tue, 3 Jan 2017 09:59:58 +0000
+
+The address to which the message has not yet been delivered is:
+
+  alexxeitokarev@gmail.com
+    host alt4.gmail-smtp-in.l.google.com [2607:f8b0:4003:c17::1a]
+    Delay reason: SMTP error from remote mail server after RCPT TO:<alexxeitokarev@gmail.com>:
+    450-4.2.1 The user you are trying to contact is receiving mail at a rate that
+    450-4.2.1 prevents additional messages from being delivered. Please resend your
+    450-4.2.1 message at a later time. If the user is able to receive mail at that
+    450-4.2.1 time, your message will be delivered. For more information, please
+    450-4.2.1 visit
+    450 4.2.1  https://support.google.com/mail/?p=ReceivingRate n125si31764388oib.141 - gsmtp
+
+No action is required on your part. Delivery attempts will continue for
+some time, and this warning may be repeated at intervals if the message
+remains undelivered. Eventually the mail delivery software will give up,
+and when that happens, the message will be returned to you.
+
+--1483545889-eximdsn-908984390
+Content-type: message/delivery-status
+
+Reporting-MTA: dns; se03.mail.example-sender.com
+
+Action: delayed
+Final-Recipient: rfc822;alexxeitokarev@gmail.com
+Status: 4.0.0
+Remote-MTA: dns; alt4.gmail-smtp-in.l.google.com
+Diagnostic-Code: smtp; 450-4.2.1 The user you are trying to contact is receiving mail at a rate that
+ 450-4.2.1 prevents additional messages from being delivered. Please resend your
+ 450-4.2.1 message at a later time. If the user is able to receive mail at that
+ 450-4.2.1 time, your message will be delivered. For more information, please
+ 450-4.2.1 visit
+ 450 4.2.1  https://support.google.com/mail/?p=ReceivingRate n125si31764388oib.141 - gsmtp
+
+--1483545889-eximdsn-908984390
+Content-type: text/rfc822-headers
+
+Return-path: <bounce@example-sender.com>
+Received: from vhosting-relay.mail.example-sender.com ([109.72.87.218])
+        by se03.mail.example-sender.com with esmtpa (Exim 4.86)
+        (envelope-from <bounce@example-sender.com>)
+        id 1cOLst-0000JZ-5n
+        for alexxeitokarev@gmail.com; Tue, 03 Jan 2017 11:00:00 +0100
+Received: from web20.vhosting.example-sender.com (unknown [IPv6:2a00:f10:101:201:225:90ff:fee8:747a])
+        by vhosting-relay.mail.example-sender.com (Postfix) with ESMTP id CA18EFDB5
+        for <alexxeitokarev@gmail.com>; Tue,  3 Jan 2017 10:59:58 +0100 (CET)
+Received: by web20.vhosting.example-sender.com (Postfix, from userid 78051)
+        id C6C9F26DE06; Tue,  3 Jan 2017 10:59:58 +0100 (CET)
+To: alexxeitokarev@gmail.com
+Subject: Nieuwsbrief aanmelding
+X-PHP-Originating-Script: 78051:class-phpmailer.php
+Date: Tue, 3 Jan 2017 09:59:58 +0000
+From: Stichting Tekenbeetziekten <beheerder@www.example-sender.com>
+Message-ID: <77bb8818cfb1c67a5f3e9be6540d6fa2@www.www.example-sender.com>
+X-Mailer: PHPMailer 5.2.14 (https://github.com/PHPMailer/PHPMailer)
+Knews-Blog-Id: 1 _
+MIME-Version: 1.0
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: 109.72.87.218
+X-SpamExperts-Domain: out.example-sender.com
+X-SpamExperts-Username: vhosting-relay
+Authentication-Results: mail.example-sender.com; auth=pass (plain) smtp.auth=vhosting-relay@out.example-sender.com
+X-SpamExperts-Outgoing-Class: ham
+X-SpamExperts-Outgoing-Evidence: Combined (0.27)
+X-Filter-ID: s0sct1PQhAABKnZB5plbId8tOrkE2ORYqyrD/7TEfKxcJnC2x4n034PP3pJfR/Wz0xT8krtE/u5Z
+ eGhItJFhTm04FzIq1Y0LDEaRzc0BemsCu5GK89uYY17oyMlx6XljAR3x4YxlVfIEVMT5z2Qjl56y
+ JGadpp+kK8tLxSkxz6ind9RQCjqEIYin4FJ55rLgW1ZBdp4FGfnmdQn6/EEVJmros8hurtnlbXrA
+ vA0NXgEual4EgPXHUj1KFDmkGC75dcmtTcWSOKD5RASVzg27ijwWX7pNjkZUnykKrkUNjXq8Ksk+
+ aedMfNWSnJswrtlN4yoMJ+WJyYGD4rO56+hFEPd06DfnR9DSTZmJ9aFDVbcRg98OJJUFVDxxYd2P
+ nepIGNrnL2gI0IVHgEDqINBxLgK7kYrz25hjXujIyXHpeWPbxv9svk/Wx00SbOuAUJRMduxbkMaS
+ 51/RmPls41AC7jZx5Jb7C8msCa8BJAlCktKCUNXPyuycom8c4kUYR/R/gHZw7VNOhZFAfHcZ1J5t
+ qevqddba6uY9VbMHob26QdYcGA0JDvkNc8oV3b0wl0/DWExDh4yVrxqo38SmD4qDBS8wO1WTzRFh
+ 17/zbTRlClrbVwHkgjgG5Ny9G9NH7JmbjxqVInDtyLKdhpFYlh+5i0pJkzvQFD0n4ZCeWWj00iQa
+ mUdylUIKhf3z2GAHxH7Iql6QLtSTdrXdUQpfpE14owgrBX9kHHgGRdhOcyBYSTJBeTYBH/OotJlM
+ YYv6nALtEguO3VotnkEFj89oT1Ih6EaqkwG92Y5nw4rtw4gHtxzHjlbqHZy1b5XX4TIwZMvFUi2k
+ 2YdREXqNgQEOxqRLDxDZqg/YYst3yau/LzuQfDNHf52BPjMrIkRhf4FrAnyJhoUhO1QbqnEBg5Rr
+ RnhKTQ==
+X-Report-Abuse-To: spam@semaster01.mail.example-sender.com
+X-Recommended-Action: accept
+
+
+--1483545889-eximdsn-908984390--
