@@ -14,11 +14,13 @@
 // text in messages from which to figure out what kind of bounce
 $bouncelist = array(
     // use the code from the regex
+    '(5\.7\.[01])' => 'x',
     '[45]\d\d[- ]#?([45]\.\d\.\d{1,2})' => 'x',
     // use the code from the regex
     'Diagnostic[- ][Cc]ode: smtp; ?\d\d\ ([45]\.\d\.\d{1,2})' => 'x',
     // use the code from the regex
     'Status: ([45]\.\d\.\d{1,2})' => 'x',
+    'Remote Server returned[\' <#4]*([45]\.\d\.\d{1,2})' => 'x',
     'not yet been delivered' => '4.2.0',
     'Message will be retried for' => '4.2.0',
     'Connection frequency limited\. http:\/\/service\.mail\.qq\.com' => '4.2.0',
