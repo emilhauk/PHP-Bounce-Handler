@@ -508,6 +508,12 @@ class BounceHandler
                     $mycode = @$this->format_status_code(
                         $rpt_hash['per_recipient'][$i]['Status']
                     );
+                    $mycode = $this->format_status_code($rpt_hash['per_recipient'][$i]['Diagnostic-code']['text']);                  
+                    if ($mycode['code'] == '') {
+                                      $mycode = @$this->format_status_code(
+                                          $rpt_hash['per_recipient'][$i]['Status']
+                                      );
+                    }
                     $this->output[$i]['status'] = $mycode['code'];
 
                     $this->output[$i]['action']
