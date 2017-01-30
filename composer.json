@@ -3,5 +3,12 @@
     "type": "library",
     "require": {
         "ext-iconv": "*"
+    },
+    "autoload": {
+        "files": [
+            "bounce_responses.php",
+            "bounce_statuscodes.php",
+            "bounce_driver.class.php"
+        ]
     }
 }
