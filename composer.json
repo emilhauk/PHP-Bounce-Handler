@@ -1,0 +1,7 @@
+{
+    "name": "emilhauk/php-bounce-handler",
+    "type": "library",
+    "require": {
+        "ext-iconv": "*"
+    }
+}
